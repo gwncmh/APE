@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main() {
+    string ones[] = {"", "one ", "two ", "three ", "four ", "five ", "six ", "seven ", "eight ", "nine ", "ten ", "eleven ", "twelve ", "thirteen ", "fourteen ", "fifteen ", "sixteen ", "seventeen ", "eighteen ", "nineteen "};
+    string tens[] = {"", "", "twenty ", "thirty ", "forty ", "fifty ", "sixty ", "seventy ", "eighty ", "ninety "};
+    string bigs[] = {"", "thousand ", "million ", "billion "};
+
+    int N;
+    cout << "Nhap so nguyen tu -999999999 den 999999999: ";
+    cin >> N;
+
+    if (N == 0) {
+        cout << "zero";
+    } else {
+        if (N < 0) {
+            cout << "negative ";
+            N = -N;
+        }
+
+        int idx = 0;
+        while (N > 0) {
+            if (N % 1000 != 0) {
+                int num = N % 1000;
+                string str = "";
+                if (num >= 100) {
+                    str += ones[num / 100] + "hundred ";
+                    num %= 100;
+                }
+                if (num >= 20) {
+                    str += tens[num / 10];
+                    num %= 10;
+                }
+                if (num > 0) {
+                    str += ones[num];
+                }
+                cout << str + bigs[idx];
+            }
+            N /= 1000;
+            idx++;
+        }
+    }
+
+    return 0;
+}
