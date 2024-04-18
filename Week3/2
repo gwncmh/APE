@@ -8,8 +8,9 @@ int main() {
     while(i<j) {
         if(s[i]!=s[j]) {
             cout << "No";
+            break;
         }
         i++; j--;
     }
-    cout << "Yes";
+    if(i==(int)s.size()/2) cout << "Yes";
 }
