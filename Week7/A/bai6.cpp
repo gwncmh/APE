@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-char c[]="123345";
 char* weird_string() {
+   char c[] = "123345";
    return c;
 }
 int main()
